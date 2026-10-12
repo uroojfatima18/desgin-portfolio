@@ -10,8 +10,6 @@ import {
   X,
   Layers,
   Sparkles,
-  Share2,
-  Check,
 } from "lucide-react";
 import { PORTFOLIO_DATA, SlideDeck } from "@/data/portfolioData";
 
@@ -20,7 +18,6 @@ export default function SlidesSection() {
   const [activeDeckIndex, setActiveDeckIndex] = useState(0);
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
 
   if (!decks.length) return null;
 
@@ -34,14 +31,6 @@ export default function SlidesSection() {
 
   const handlePrev = () => {
     setCurrentSlideIndex((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const handleShare = () => {
-    if (typeof window !== "undefined") {
-      navigator.clipboard.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
   };
 
   return (
@@ -71,36 +60,6 @@ export default function SlidesSection() {
           </div>
 
           <h2 className="section-title">SLIDES I MADE</h2>
-        </div>
-
-        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <button
-            onClick={handleShare}
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              padding: "7px 14px",
-              borderRadius: "var(--radius-full)",
-              background: "var(--bg-card)",
-              border: "1px solid var(--border-light)",
-              fontSize: "12px",
-              fontWeight: 600,
-              color: "var(--text-main)",
-            }}
-          >
-            {copied ? (
-              <>
-                <Check size={13} color="#16A34A" />
-                <span style={{ color: "#16A34A" }}>Copied!</span>
-              </>
-            ) : (
-              <>
-                <Share2 size={13} />
-                <span>Share</span>
-              </>
-            )}
-          </button>
         </div>
       </div>
 
