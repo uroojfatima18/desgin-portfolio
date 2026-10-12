@@ -20,7 +20,7 @@ export default function Footer() {
         <div className="converto-brand-col">
           <h2 className="converto-brand-title">UROOJ FATIMA</h2>
           <p className="converto-brand-desc">
-            Product &amp; UI/UX Designer specializing in intuitive digital experiences, 
+            Specialized In High Quality Impactfull Design,
             high-impact slide decks, and Agentic AI solutions.
           </p>
         </div>
