@@ -51,7 +51,7 @@ export default function HomePage() {
       <section id="about" className="cinematic-hero-section">
         <div className="cinematic-hero-glow" />
 
-        {/* Status Pill Badge */}
+        {/* Status Pill Badge with Profile Avatar */}
         <motion.div
           initial={{ opacity: 0, y: -16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -61,20 +61,47 @@ export default function HomePage() {
             zIndex: 10,
             display: "inline-flex",
             alignItems: "center",
-            gap: "8px",
-            padding: "6px 18px",
+            gap: "10px",
+            padding: "5px 18px 5px 6px",
             borderRadius: "var(--radius-full)",
             background: "rgba(255, 255, 255, 0.08)",
             border: "1px solid rgba(255, 255, 255, 0.15)",
             backdropFilter: "blur(10px)",
-            fontSize: "12px",
+            fontSize: "12.5px",
             fontWeight: 600,
             color: "#ECE5D8",
             marginBottom: "16px",
             boxShadow: "0 4px 16px rgba(0,0,0,0.3)",
           }}
         >
-          <span className="pulse-dot" />
+          {/* Avatar with live green indicator */}
+          <div style={{ position: "relative", width: "26px", height: "26px", flexShrink: 0 }}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/assets/urooj.jpg"
+              alt="Urooj Fatima"
+              style={{
+                width: "100%",
+                height: "100%",
+                borderRadius: "50%",
+                objectFit: "cover",
+                objectPosition: "center top",
+                border: "1.5px solid rgba(255, 255, 255, 0.6)",
+              }}
+            />
+            <span
+              style={{
+                position: "absolute",
+                bottom: "-1px",
+                right: "-1px",
+                width: "8px",
+                height: "8px",
+                borderRadius: "50%",
+                backgroundColor: "var(--accent-green)",
+                border: "1.5px solid #141417",
+              }}
+            />
+          </div>
           <span>Available for Projects &amp; Collaborations</span>
         </motion.div>
 
