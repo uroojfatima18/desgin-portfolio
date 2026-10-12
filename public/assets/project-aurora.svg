@@ -1,0 +1,49 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgAurora" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="20" fill="url(#bgAurora)" />
+
+  <g transform="translate(60, 50)">
+    <!-- Header -->
+    <rect x="0" y="0" width="130" height="28" rx="14" fill="#1E3A8A" />
+    <text x="65" y="18" fill="#93C5FD" font-size="11" font-weight="600" font-family="system-ui, sans-serif" text-anchor="middle">AURORA CORE TOKENS</text>
+
+    <!-- Component Showcase Grid -->
+    <g transform="translate(0, 50)">
+      <!-- Card 1: Buttons & States -->
+      <rect x="0" y="0" width="320" height="160" rx="12" fill="#1E293B" stroke="#334155" />
+      <text x="24" y="32" fill="#94A3B8" font-size="12" font-family="system-ui, sans-serif">Button Variants &amp; Micro-interactions</text>
+      
+      <rect x="24" y="55" width="120" height="38" rx="8" fill="#2563EB" />
+      <text x="84" y="79" fill="#FFFFFF" font-size="12" font-weight="600" font-family="system-ui, sans-serif" text-anchor="middle">Primary ↗</text>
+
+      <rect x="160" y="55" width="120" height="38" rx="8" fill="#334155" stroke="#475569" />
+      <text x="220" y="79" fill="#F8FAFC" font-size="12" font-weight="500" font-family="system-ui, sans-serif" text-anchor="middle">Secondary</text>
+
+      <rect x="24" y="105" width="90" height="32" rx="16" fill="#0EA5E9" opacity="0.2" stroke="#0EA5E9" />
+      <text x="69" y="125" fill="#38BDF8" font-size="11" font-family="system-ui, sans-serif" text-anchor="middle">Badge Tag</text>
+
+      <!-- Card 2: Color Palette Primitives -->
+      <rect x="350" y="0" width="330" height="160" rx="12" fill="#1E293B" stroke="#334155" />
+      <text x="374" y="32" fill="#94A3B8" font-size="12" font-family="system-ui, sans-serif">Semantic Color Primitives (P3 Display)</text>
+      <circle cx="390" cy="75" r="18" fill="#2563EB" />
+      <circle cx="435" cy="75" r="18" fill="#3B82F6" />
+      <circle cx="480" cy="75" r="18" fill="#60A5FA" />
+      <circle cx="525" cy="75" r="18" fill="#93C5FD" />
+      <circle cx="570" cy="75" r="18" fill="#DBEAFE" />
+      <text x="374" y="125" fill="#64748B" font-size="11" font-family="monospace">--color-brand-blue: 50 -> 900</text>
+
+      <!-- Card 3: Code Synced Tokens -->
+      <rect x="0" y="180" width="680" height="170" rx="12" fill="#090D16" stroke="#1E293B" />
+      <text x="24" y="215" fill="#38BDF8" font-size="12" font-family="monospace">export const AuroraTheme = {</text>
+      <text x="48" y="240" fill="#94A3B8" font-size="12" font-family="monospace">  radius: { sm: "6px", md: "12px", pill: "9999px" },</text>
+      <text x="48" y="265" fill="#94A3B8" font-size="12" font-family="monospace">  motion: { spring: "cubic-bezier(0.16, 1, 0.3, 1)", duration: 250 },</text>
+      <text x="48" y="290" fill="#94A3B8" font-size="12" font-family="monospace">  typography: { display: "Geist, sans-serif", mono: "GeistMono" }</text>
+      <text x="24" y="315" fill="#38BDF8" font-size="12" font-family="monospace">};</text>
+    </g>
+  </g>
+</svg>

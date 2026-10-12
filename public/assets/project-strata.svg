@@ -1,0 +1,52 @@
+<svg width="800" height="520" viewBox="0 0 800 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgStrata" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0A0A0C" />
+      <stop offset="100%" stop-color="#18181B" />
+    </linearGradient>
+    <linearGradient id="chartFill" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#10B981" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="520" rx="20" fill="url(#bgStrata)" />
+
+  <!-- Grid overlay -->
+  <path d="M 50 100 H 750 M 50 180 H 750 M 50 260 H 750 M 50 340 H 750 M 50 420 H 750" stroke="#27272A" stroke-width="0.8" stroke-dasharray="2 4" />
+  
+  <g transform="translate(60, 50)">
+    <!-- Header -->
+    <text x="20" y="32" fill="#FFFFFF" font-size="18" font-weight="700" font-family="system-ui, sans-serif">STRATA // PRIME PORTFOLIO</text>
+    <rect x="290" y="16" width="70" height="22" rx="11" fill="#14532D" />
+    <text x="325" y="31" fill="#4ADE80" font-size="10" font-weight="600" font-family="system-ui, sans-serif" text-anchor="middle">LIVE FEED</text>
+
+    <!-- Key Metrics Cards -->
+    <g transform="translate(0, 55)">
+      <rect x="0" y="0" width="210" height="90" rx="10" fill="#18181B" stroke="#27272A" />
+      <text x="20" y="30" fill="#71717A" font-size="11" font-family="system-ui, sans-serif">TOTAL AUM VALUE</text>
+      <text x="20" y="60" fill="#FAFAFA" font-size="22" font-weight="700" font-family="system-ui, sans-serif">$1,428,940,200</text>
+      <text x="20" y="78" fill="#10B981" font-size="11" font-weight="600" font-family="system-ui, sans-serif">▲ +14.2% (YTD)</text>
+
+      <rect x="230" y="0" width="210" height="90" rx="10" fill="#18181B" stroke="#27272A" />
+      <text x="250" y="30" fill="#71717A" font-size="11" font-family="system-ui, sans-serif">REAL-TIME LIQUIDITY</text>
+      <text x="250" y="60" fill="#FAFAFA" font-size="22" font-weight="700" font-family="system-ui, sans-serif">$382.4M</text>
+      <text x="250" y="78" fill="#60A5FA" font-size="11" font-weight="600" font-family="system-ui, sans-serif">99.98% Depth</text>
+
+      <rect x="460" y="0" width="220" height="90" rx="10" fill="#18181B" stroke="#27272A" />
+      <text x="480" y="30" fill="#71717A" font-size="11" font-family="system-ui, sans-serif">ORDER LATENCY</text>
+      <text x="480" y="60" fill="#FAFAFA" font-size="22" font-weight="700" font-family="system-ui, sans-serif">0.82 ms</text>
+      <text x="480" y="78" fill="#A855F7" font-size="11" font-weight="600" font-family="system-ui, sans-serif">Tokyo / NY / FRA</text>
+    </g>
+
+    <!-- Chart Panel -->
+    <g transform="translate(0, 165)">
+      <rect x="0" y="0" width="680" height="240" rx="12" fill="#121215" stroke="#27272A" />
+      <path d="M 20 180 Q 120 140 220 160 T 400 90 T 560 60 T 660 40 L 660 220 L 20 220 Z" fill="url(#chartFill)" />
+      <path d="M 20 180 Q 120 140 220 160 T 400 90 T 560 60 T 660 40" stroke="#10B981" stroke-width="2.5" fill="none" />
+      <circle cx="660" cy="40" r="5" fill="#10B981" />
+      <circle cx="660" cy="40" r="12" stroke="#10B981" stroke-width="1.5" opacity="0.6" />
+      
+      <text x="30" y="40" fill="#A1A1AA" font-size="12" font-family="system-ui, sans-serif">High-Frequency Execution Yield (Simulated)</text>
+    </g>
+  </g>
+</svg>

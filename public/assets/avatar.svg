@@ -1,0 +1,31 @@
+<svg width="400" height="400" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="avatarBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181B" />
+      <stop offset="50%" stop-color="#27272A" />
+      <stop offset="100%" stop-color="#0E0E0E" />
+    </linearGradient>
+    <linearGradient id="accentGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5835E5" />
+      <stop offset="100%" stop-color="#8C64FF" />
+    </linearGradient>
+    <radialGradient id="specular" cx="50%" cy="30%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" rx="40" fill="url(#avatarBg)"/>
+  <circle cx="200" cy="150" r="70" fill="url(#accentGlow)"/>
+  <circle cx="200" cy="150" r="70" fill="url(#specular)"/>
+  <!-- Designer Stylized Portrait Silhouette -->
+  <path d="M140 330 C140 260 170 240 200 240 C230 240 260 260 260 330 Z" fill="#E4E4E7"/>
+  <circle cx="200" cy="170" r="50" fill="#F4F4F5"/>
+  <path d="M165 140 Q200 115 235 140 C225 120 200 118 175 125 Z" fill="#18181B"/>
+  <!-- Minimal Glasses & Designer mark -->
+  <rect x="175" y="160" width="22" height="14" rx="4" stroke="#18181B" stroke-width="3" fill="none"/>
+  <rect x="203" y="160" width="22" height="14" rx="4" stroke="#18181B" stroke-width="3" fill="none"/>
+  <line x1="197" y1="167" x2="203" y2="167" stroke="#18181B" stroke-width="3"/>
+  <!-- Badge Accent -->
+  <circle cx="340" cy="60" r="16" fill="#10B981"/>
+  <circle cx="340" cy="60" r="8" fill="#FFFFFF"/>
+</svg>
