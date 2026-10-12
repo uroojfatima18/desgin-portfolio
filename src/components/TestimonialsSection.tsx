@@ -103,8 +103,20 @@ export default function TestimonialsSection() {
             </span>
           </div>
 
-          <h2 className="section-title">WHAT PEOPLE SAY ABOUT DESIGNS &amp; VIDEO GENERATION</h2>
-          <p style={{ fontSize: "14px", color: "var(--text-muted)", marginTop: "4px", maxWidth: "620px" }}>
+          <h2
+            className="section-title"
+            style={{
+              fontSize: "clamp(22px, 2.8vw, 32px)",
+              letterSpacing: "-0.02em",
+              lineHeight: 1.25,
+            }}
+          >
+            <span>WHAT PEOPLE SAY ABOUT</span>
+            <span style={{ display: "block", color: "var(--accent-violet)", marginTop: "2px" }}>
+              DESIGNS &amp; VIDEO GENERATION
+            </span>
+          </h2>
+          <p style={{ fontSize: "14px", color: "var(--text-muted)", marginTop: "6px", maxWidth: "620px" }}>
             Real reviews and compliments on design work, AI videos, and creative production.
           </p>
         </div>
