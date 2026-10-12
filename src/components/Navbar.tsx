@@ -4,11 +4,11 @@ import { ArrowUpRight } from "lucide-react";
 
 const NAV_LINKS = [
   { name: "About", href: "#about" },
-  { name: "Posters & Work", href: "#posters" },
+  { name: "Posters", href: "#posters" },
   { name: "Slides", href: "#slides" },
-  { name: "AI Video", href: "#ai-video" },
+  { name: "AI Videos", href: "#ai-video" },
   { name: "Reviews", href: "#compliments" },
-  { name: "How I Work", href: "#workflow" },
+  { name: "Process", href: "#workflow" },
 ];
 
 export default function Navbar() {
