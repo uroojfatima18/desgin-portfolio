@@ -684,7 +684,7 @@ button {
    ========================================================= */
 .cinematic-hero-section {
   position: relative;
-  background: #0B0B0E;
+  background: radial-gradient(ellipse 90% 65% at 50% 10%, #1D1D22 0%, #141417 55%, #0B0B0D 100%);
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
@@ -696,21 +696,37 @@ button {
   align-items: center;
   text-align: center;
   overflow: hidden;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .cinematic-hero-glow {
   position: absolute;
-  top: -120px;
+  top: -100px;
   left: 50%;
   transform: translateX(-50%);
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(circle, rgba(88, 53, 229, 0.35) 0%, rgba(13, 13, 17, 0) 70%);
-  filter: blur(50px);
+  width: clamp(550px, 70vw, 850px);
+  height: clamp(340px, 45vw, 500px);
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 45%, transparent 70%);
+  filter: blur(70px);
   pointer-events: none;
   z-index: 1;
+  animation: heroGentleGlow 9s ease-in-out infinite alternate;
+}
+
+@keyframes heroGentleGlow {
+  0% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-50%) translateY(12px) scale(1.05);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateX(-50%) translateY(-6px) scale(0.98);
+    opacity: 0.7;
+  }
 }
 
 .cinematic-marquee-title-wrap {
@@ -735,7 +751,7 @@ button {
   font-size: clamp(95px, 24vw, 320px);
   line-height: 0.85;
   letter-spacing: clamp(0.06em, 2vw, 0.14em);
-  color: #ECE5D8;
+  color: #FAF6F0;
   text-transform: uppercase;
   user-select: none;
   white-space: nowrap;
@@ -753,12 +769,26 @@ button {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  transform: rotate(-3.5deg) translateY(-4px);
+  transform: rotate(-3deg) translateY(-4px);
+  animation: heroPortraitFloat 6s ease-in-out infinite alternate;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
 }
 
 .cinematic-portrait-container:hover {
-  transform: rotate(0deg) scale(1.02) translateY(-8px);
+  transform: rotate(0deg) scale(1.03) translateY(-10px);
+  animation-play-state: paused;
+}
+
+@keyframes heroPortraitFloat {
+  0% {
+    transform: rotate(-3.5deg) translateY(-4px);
+  }
+  50% {
+    transform: rotate(-2deg) translateY(-14px);
+  }
+  100% {
+    transform: rotate(-3.5deg) translateY(-4px);
+  }
 }
 
 .cinematic-portrait-img {
@@ -767,9 +797,14 @@ button {
   object-fit: cover;
   object-position: center 20%;
   border-radius: 28px 28px 0 0;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0 18px 36px rgba(18, 14, 32, 0.5));
   mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
   -webkit-mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+  transition: filter 0.4s ease;
+}
+
+.cinematic-portrait-container:hover .cinematic-portrait-img {
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.55));
 }
 
 .cinematic-outline-text {
@@ -783,7 +818,7 @@ button {
   line-height: 0.85;
   letter-spacing: clamp(0.06em, 2vw, 0.14em);
   color: transparent;
-  -webkit-text-stroke: 1.5px rgba(236, 229, 216, 0.85);
+  -webkit-text-stroke: 1.5px rgba(250, 246, 240, 0.9);
   text-transform: uppercase;
   user-select: none;
   white-space: nowrap;
@@ -1230,6 +1265,151 @@ button {
 }
 
 /* =========================================================
+   HORIZONTAL INFINITE AI VIDEOS MARQUEE (LIKE POSTERS)
+   ========================================================= */
+
+.videos-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 14px 0 24px;
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.videos-marquee-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: videosMarquee 32s linear infinite;
+}
+
+.videos-marquee-container:hover .videos-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes videosMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.video-marquee-card {
+  position: relative;
+  width: 420px;
+  border-radius: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.1), 0 3px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(88, 53, 229, 0.14);
+  background: #FFFFFF;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-marquee-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 50px rgba(88, 53, 229, 0.18), 0 6px 16px rgba(0, 0, 0, 0.08);
+  border-color: rgba(88, 53, 229, 0.35);
+}
+
+.video-card-screen-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0B0B10;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.video-card-screen-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.video-marquee-card:hover .video-card-screen-wrap video {
+  transform: scale(1.03);
+}
+
+@media (max-width: 640px) {
+  .video-marquee-card {
+    width: 310px;
+    border-radius: 16px;
+  }
+}
+
+/* =========================================================
+   HORIZONTAL INFINITE COMPLIMENTS MARQUEE
+   ========================================================= */
+
+.compliments-marquee-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 12px 0 20px;
+  mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+}
+
+.compliments-marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: complimentsMarquee 34s linear infinite;
+}
+
+.compliments-marquee-container:hover .compliments-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes complimentsMarquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.compliment-marquee-card {
+  position: relative;
+  width: 380px;
+  border-radius: 18px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(88, 53, 229, 0.14);
+  background: #FFFFFF;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+.compliment-marquee-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 20px 45px rgba(88, 53, 229, 0.16);
+  border-color: rgba(88, 53, 229, 0.35);
+}
+
+@media (max-width: 640px) {
+  .compliment-marquee-card {
+    width: 300px;
+    padding: 12px 14px;
+    border-radius: 15px;
+  }
+}
+
+
+/* =========================================================
    CONVERTO-STYLE LUXURY LIGHT FOOTER (MATCHING LILAC THEME)
    ========================================================= */
 .converto-footer {
@@ -1382,12 +1562,25 @@ button {
   font-size: clamp(80px, 18vw, 260px);
   line-height: 0.85;
   letter-spacing: clamp(0.04em, 1.8vw, 0.12em);
-  background: linear-gradient(180deg, rgba(88, 53, 229, 0.18) 0%, rgba(167, 139, 250, 0.08) 60%, transparent 100%);
+  background: linear-gradient(135deg, rgba(88, 53, 229, 0.25) 0%, rgba(167, 139, 250, 0.12) 40%, rgba(88, 53, 229, 0.28) 75%, rgba(167, 139, 250, 0.14) 100%);
+  background-size: 200% 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  animation: footerWatermarkShimmer 7s ease-in-out infinite alternate;
   white-space: nowrap;
   text-align: center;
   margin-bottom: -15px;
+}
+
+@keyframes footerWatermarkShimmer {
+  0% {
+    background-position: 0% 50%;
+    letter-spacing: clamp(0.04em, 1.8vw, 0.12em);
+  }
+  100% {
+    background-position: 100% 50%;
+    letter-spacing: clamp(0.05em, 2vw, 0.14em);
+  }
 }
 
 @media (max-width: 768px) {

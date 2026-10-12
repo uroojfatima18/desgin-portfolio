@@ -95,7 +95,7 @@ export const PORTFOLIO_DATA = {
     statusAvailable: true,
     location: "Remote / Worldwide",
     bio: "Crafting distinct digital experiences, intuitive interfaces, and high-conversion design systems with relentless attention to craft and detail.",
-    email: "urooj.fatima.design@gmail.com",
+    email: "uroojf199@gmail.com",
     avatar: "/assets/urooj.jpg",
     stats: [
       { label: "Years Experience", value: "6+" },
@@ -445,7 +445,7 @@ export const PORTFOLIO_DATA = {
         reactions: "27 reactions",
         comments: "8 comments",
         reposts: "2 reposts",
-        screenshot: "/assets/stats/slide-stats-1.png",
+        screenshot: "/assets/stats/slide-stats-2.png",
       },
       slides: [
         {
@@ -496,7 +496,7 @@ export const PORTFOLIO_DATA = {
         reactions: "32 reactions",
         comments: "24 comments",
         reposts: "3 reposts",
-        screenshot: "/assets/stats/slide-stats-2.png",
+        screenshot: "/assets/stats/slide-stats-1.png",
       },
       slides: [
         {

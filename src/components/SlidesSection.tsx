@@ -196,25 +196,65 @@ export default function SlidesSection() {
             </p>
           </div>
 
-          {/* Slide Counter Badge */}
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "6px",
-              padding: "6px 14px",
-              borderRadius: "var(--radius-full)",
-              background: "var(--bg-body)",
-              border: "1px solid var(--border-light)",
-              fontSize: "12.5px",
-              fontWeight: 700,
-              color: "var(--text-main)",
-            }}
-          >
-            <Layers size={14} color="#5835E5" />
-            <span>
-              Slide {currentSlideIndex + 1} / {slides.length}
-            </span>
+          {/* Right Header Controls: Deck Switcher Arrow + Slide Counter */}
+          <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
+            {/* Slide Counter Badge */}
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                padding: "6px 14px",
+                borderRadius: "var(--radius-full)",
+                background: "var(--bg-body)",
+                border: "1px solid var(--border-light)",
+                fontSize: "12.5px",
+                fontWeight: 700,
+                color: "var(--text-main)",
+              }}
+            >
+              <Layers size={14} color="#5835E5" />
+              <span>
+                Slide {currentSlideIndex + 1} / {slides.length}
+              </span>
+            </div>
+
+            {/* Switch to Next Deck Arrow Button */}
+            {decks.length > 1 && (
+              <button
+                onClick={() => {
+                  setActiveDeckIndex((prev) => (prev + 1) % decks.length);
+                  setCurrentSlideIndex(0);
+                }}
+                title={`Switch to: ${decks[(activeDeckIndex + 1) % decks.length].title}`}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "6px",
+                  padding: "7px 16px",
+                  borderRadius: "var(--radius-full)",
+                  background: "var(--accent-violet)",
+                  color: "#FFFFFF",
+                  border: "none",
+                  fontSize: "12.5px",
+                  fontWeight: 700,
+                  cursor: "pointer",
+                  boxShadow: "0 4px 14px rgba(88, 53, 229, 0.35)",
+                  transition: "all 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = "translateX(2px) scale(1.03)";
+                  e.currentTarget.style.boxShadow = "0 6px 18px rgba(88, 53, 229, 0.45)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = "none";
+                  e.currentTarget.style.boxShadow = "0 4px 14px rgba(88, 53, 229, 0.35)";
+                }}
+              >
+                <span>Switch Deck</span>
+                <ChevronRight size={15} />
+              </button>
+            )}
           </div>
         </div>
 
@@ -282,32 +322,41 @@ export default function SlidesSection() {
             <ChevronLeft size={22} />
           </button>
 
-          {/* Right Arrow Button */}
+          {/* Right Arrow Button (Switch to Next Slide) */}
           <button
             onClick={handleNext}
             aria-label="Next slide"
+            title="Next Slide"
             style={{
               position: "absolute",
               right: "14px",
               top: "50%",
               transform: "translateY(-50%)",
-              width: "42px",
-              height: "42px",
+              width: "48px",
+              height: "48px",
               borderRadius: "50%",
-              background: "rgba(255, 255, 255, 0.9)",
-              color: "#0E0E0E",
+              background: "#FFFFFF",
+              color: "#5835E5",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              boxShadow: "0 4px 16px rgba(0, 0, 0, 0.25)",
-              backdropFilter: "blur(8px)",
-              transition: "transform 0.2s ease, background 0.2s ease",
+              boxShadow: "0 6px 20px rgba(88, 53, 229, 0.35), 0 2px 8px rgba(0,0,0,0.2)",
+              border: "1.5px solid rgba(88, 53, 229, 0.2)",
+              backdropFilter: "blur(10px)",
+              transition: "transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s ease",
               zIndex: 10,
+              cursor: "pointer",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-50%) scale(1.08)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(-50%) scale(1)")}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = "translateY(-50%) scale(1.14)";
+              e.currentTarget.style.boxShadow = "0 8px 26px rgba(88, 53, 229, 0.5)";
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "translateY(-50%) scale(1)";
+              e.currentTarget.style.boxShadow = "0 6px 20px rgba(88, 53, 229, 0.35), 0 2px 8px rgba(0,0,0,0.2)";
+            }}
           >
-            <ChevronRight size={22} />
+            <ChevronRight size={26} strokeWidth={2.6} />
           </button>
 
           {/* Fullscreen Expand Icon */}

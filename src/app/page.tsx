@@ -3,9 +3,10 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Download } from "lucide-react";
+
 import SlidesSection from "@/components/SlidesSection";
 import AIVideoSection from "@/components/AIVideoSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
@@ -51,7 +52,10 @@ export default function HomePage() {
         <div className="cinematic-hero-glow" />
 
         {/* Status Pill Badge */}
-        <div
+        <motion.div
+          initial={{ opacity: 0, y: -16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
           style={{
             position: "relative",
             zIndex: 10,
@@ -72,7 +76,7 @@ export default function HomePage() {
         >
           <span className="pulse-dot" />
           <span>Available for Projects &amp; Collaborations</span>
-        </div>
+        </motion.div>
 
         {/* Giant PORTFOLIO typography layered with Portrait Cutout */}
         <div className="cinematic-marquee-title-wrap">
@@ -81,15 +85,20 @@ export default function HomePage() {
             PORTFOLIO
           </div>
 
-          {/* Layer 2: Urooj's Center Portrait Cutout */}
-          <div className="cinematic-portrait-container">
+          {/* Layer 2: Urooj's Center Portrait Cutout with animated entrance */}
+          <motion.div
+            className="cinematic-portrait-container"
+            initial={{ opacity: 0, scale: 0.92, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/assets/urooj.jpg"
               alt="Urooj Fatima"
               className="cinematic-portrait-img"
             />
-          </div>
+          </motion.div>
 
           {/* Layer 3: Giant Text Outlines on top of the portrait */}
           <div className="cinematic-outline-text" aria-hidden="true">
@@ -98,15 +107,20 @@ export default function HomePage() {
         </div>
 
         {/* Name and Tagline below the display */}
-        <div style={{ position: "relative", zIndex: 10, marginTop: "20px" }}>
+        <motion.div
+          style={{ position: "relative", zIndex: 10, marginTop: "20px" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
+        >
           <h1
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(26px, 4.5vw, 42px)",
+              fontSize: "clamp(34px, 5.8vw, 56px)",
               fontWeight: 800,
               letterSpacing: "-0.02em",
               color: "#FFFFFF",
-              marginBottom: "8px",
+              marginBottom: "10px",
             }}
           >
             Urooj Fatima
@@ -114,58 +128,112 @@ export default function HomePage() {
 
           <p
             style={{
-              fontSize: "clamp(14px, 1.8vw, 17px)",
-              color: "rgba(236, 229, 216, 0.7)",
-              maxWidth: "580px",
-              lineHeight: 1.6,
-              margin: "0 auto 26px",
+              fontSize: "clamp(16px, 2.2vw, 21px)",
+              fontWeight: 600,
+              color: "#FAF6F0",
+              maxWidth: "680px",
+              lineHeight: 1.45,
+              margin: "0 auto 8px",
+              letterSpacing: "-0.01em",
             }}
           >
-            Product &amp; UI/UX Designer &amp; Agentic AI Developer crafting high-impact digital experiences.
+            Create High quality and Impact full Posts &amp; AI videos
           </p>
 
-          {/* Action Buttons */}
+          <p
+            style={{
+              fontSize: "clamp(13.5px, 1.8vw, 16px)",
+              color: "rgba(250, 246, 240, 0.85)",
+              maxWidth: "620px",
+              lineHeight: 1.5,
+              margin: "0 auto 28px",
+              fontWeight: 500,
+            }}
+          >
+            Designer &amp; Video generation &amp; Agentic AI Developer
+          </p>
+
+          {/* Action Buttons: LinkedIn, Instagram & Contact */}
           <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}>
-            <a
-              href="/assets/urooj-resume.pdf"
+            <motion.a
+              href="https://www.linkedin.com/in/urooj-fatima-b2698431a/"
               target="_blank"
               rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                background: "#ECE5D8",
-                color: "#0E0E0E",
-                fontSize: "13.5px",
-                fontWeight: 600,
-                padding: "11px 26px",
-                borderRadius: "var(--radius-full)",
-                transition: "all 0.2s ease",
-                boxShadow: "0 4px 14px rgba(0, 0, 0, 0.2)",
-              }}
-            >
-              <span>Download Resume</span>
-              <Download size={15} />
-            </a>
-
-            <a
-              href="#contact"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                padding: "11px 26px",
-                borderRadius: "var(--radius-full)",
-                background: "var(--accent-violet)",
+                background: "#0A66C2",
                 color: "#FFFFFF",
                 fontSize: "13.5px",
                 fontWeight: 600,
-                boxShadow: "0 4px 18px rgba(88, 53, 229, 0.4)",
+                padding: "11px 22px",
+                borderRadius: "var(--radius-full)",
+                boxShadow: "0 4px 16px rgba(10, 102, 194, 0.35)",
+              }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" />
+              </svg>
+              <span>Follow on LinkedIn</span>
+            </motion.a>
+
+            <motion.a
+              href="https://www.instagram.com/_urooj.fatimaaa_?igsi=MWd6MnFhdzd2azRpOA=="
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%)",
+                color: "#FFFFFF",
+                fontSize: "13.5px",
+                fontWeight: 600,
+                padding: "11px 22px",
+                borderRadius: "var(--radius-full)",
+                boxShadow: "0 4px 16px rgba(253, 29, 29, 0.3)",
+              }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              <span>Follow on Instagram</span>
+            </motion.a>
+
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05, y: -3 }}
+              whileTap={{ scale: 0.96 }}
+              transition={{ type: "spring", stiffness: 400, damping: 20 }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                padding: "11px 24px",
+                borderRadius: "var(--radius-full)",
+                background: "rgba(255, 255, 255, 0.12)",
+                border: "1px solid rgba(255, 255, 255, 0.25)",
+                backdropFilter: "blur(10px)",
+                color: "#ECE5D8",
+                fontSize: "13.5px",
+                fontWeight: 600,
+                boxShadow: "0 4px 14px rgba(0, 0, 0, 0.25)",
               }}
             >
               <span>Contact Me</span>
-            </a>
+            </motion.a>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 2. POST I DESIGNS (HORIZONTAL INFINITE MARQUEE, JEV FIRST) */}
@@ -425,7 +493,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 6. CONTACT ME SECTION */}
+      {/* 6. WHAT PEOPLE SAY ABOUT DESIGNS (COMMUNITY COMPLIMENTS & TESTIMONIALS) */}
+      <TestimonialsSection />
+
+      {/* 7. CONTACT ME SECTION */}
       <section id="contact" style={{ maxWidth: "760px", margin: "0 auto", width: "100%" }}>
         <ContactForm />
       </section>

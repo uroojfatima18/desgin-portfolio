@@ -3,12 +3,19 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowUpRight, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
     <footer className="converto-footer">
       {/* Top Main Section */}
-      <div className="converto-footer-top">
+      <motion.div
+        className="converto-footer-top"
+        initial={{ opacity: 0, y: 24 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+      >
         {/* Brand Column */}
         <div className="converto-brand-col">
           <h2 className="converto-brand-title">UROOJ FATIMA</h2>
@@ -47,8 +54,7 @@ export default function Footer() {
             <h4 className="converto-col-title">Contact</h4>
             <ul className="converto-links">
               <li><a href="#contact">Get in Touch</a></li>
-              <li><a href="/assets/urooj-resume.pdf" target="_blank" rel="noopener noreferrer">Resume ↗</a></li>
-              <li><a href="mailto:urooj.fatima.design@gmail.com">Email Me</a></li>
+              <li><a href="mailto:uroojf199@gmail.com" title="uroojf199@gmail.com">Email (uroojf199@gmail.com)</a></li>
             </ul>
           </div>
 
@@ -57,11 +63,13 @@ export default function Footer() {
             <h4 className="converto-col-title">Follow Me</h4>
             <ul className="converto-links">
               <li>
-                <a
+                <motion.a
                   href="https://www.linkedin.com/in/urooj-fatima-b2698431a/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="converto-social-link"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -70,14 +78,16 @@ export default function Footer() {
                   </svg>
                   <span>LinkedIn</span>
                   <ArrowUpRight size={13} className="ext-arrow" />
-                </a>
+                </motion.a>
               </li>
               <li>
-                <a
+                <motion.a
                   href="https://www.instagram.com/_urooj.fatimaaa_?igsi=MWd6MnFhdzd2azRpOA=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="converto-social-link"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 25 }}
                 >
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
@@ -86,12 +96,12 @@ export default function Footer() {
                   </svg>
                   <span>Instagram</span>
                   <ArrowUpRight size={13} className="ext-arrow" />
-                </a>
+                </motion.a>
               </li>
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Middle Row (Copyright + Meta) */}
       <div className="converto-footer-mid">

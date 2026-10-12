@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { name: "Posters & Work", href: "#posters" },
   { name: "Slides", href: "#slides" },
   { name: "AI Video", href: "#ai-video" },
+  { name: "Reviews", href: "#compliments" },
   { name: "How I Work", href: "#workflow" },
 ];
 
