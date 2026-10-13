@@ -47,218 +47,113 @@ const WORKFLOW_STEPS = [
 export default function HomePage() {
   return (
     <div className="about-page-wrapper" style={{ gap: "90px" }}>
-      {/* 1. TOP HERO SECTION: CINEMATIC REFERENCE DESIGN (GIANT PORTFOLIO + PORTRAIT CUTOUT + NAME) */}
+      {/* 1. TOP HERO SECTION: CINEMATIC REFERENCE DESIGN (MATCHING UPLOADED MOCKUP) */}
       <section id="about" className="cinematic-hero-section">
         <div className="cinematic-hero-glow" />
 
-        {/* Status Pill Badge with Profile Avatar */}
-        <motion.div
-          initial={{ opacity: 0, y: -16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          style={{
-            position: "relative",
-            zIndex: 10,
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "10px",
-            padding: "5px 18px 5px 6px",
-            borderRadius: "var(--radius-full)",
-            background: "rgba(255, 255, 255, 0.08)",
-            border: "1px solid rgba(255, 255, 255, 0.15)",
-            backdropFilter: "blur(10px)",
-            fontSize: "12.5px",
-            fontWeight: 600,
-            color: "#ECE5D8",
-            marginBottom: "16px",
-            boxShadow: "0 4px 16px rgba(0,0,0,0.3)",
-          }}
-        >
-          {/* Avatar with live green indicator */}
-          <div style={{ position: "relative", width: "26px", height: "26px", flexShrink: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/urooj.jpg"
-              alt="Urooj Fatima"
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: "50%",
-                objectFit: "cover",
-                objectPosition: "center top",
-                border: "1.5px solid rgba(255, 255, 255, 0.6)",
-              }}
-            />
-            <span
-              style={{
-                position: "absolute",
-                bottom: "-1px",
-                right: "-1px",
-                width: "8px",
-                height: "8px",
-                borderRadius: "50%",
-                backgroundColor: "var(--accent-green)",
-                border: "1.5px solid #141417",
-              }}
-            />
-          </div>
-          <span>Available for Projects &amp; Collaborations</span>
-        </motion.div>
-
         {/* Giant PORTFOLIO typography layered with Portrait Cutout */}
-        <div className="cinematic-marquee-title-wrap">
-          {/* Layer 1: Solid Giant Text behind */}
-          <div className="cinematic-bg-text" aria-hidden="true">
-            PORTFOLIO
+        <div className="hero-display-wrap">
+          {/* Layer 1: Background letters behind image (T and F outlined) */}
+          <div className="hero-portfolio-text hero-portfolio-bg" aria-hidden="true">
+            <div className="hero-word-track">
+              <span className="hero-char-ghost">P</span>
+              <span className="hero-char-ghost">O</span>
+              <span className="hero-char-ghost">R</span>
+              <span className="hero-char-outline">T</span>
+              <span className="hero-char-outline">F</span>
+              <span className="hero-char-ghost">O</span>
+              <span className="hero-char-ghost">L</span>
+              <span className="hero-char-ghost">I</span>
+              <span className="hero-char-ghost">O</span>
+            </div>
           </div>
 
-          {/* Layer 2: Urooj's Center Portrait Cutout with animated entrance */}
-          <motion.div
-            className="cinematic-portrait-container"
-            initial={{ opacity: 0, scale: 0.92, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/assets/urooj.jpg"
-              alt="Urooj Fatima"
-              className="cinematic-portrait-img"
-            />
-          </motion.div>
+          {/* Layer 2: Urooj's Center High-Quality Portrait (in front of T and F) */}
+          <div className="hero-portrait-wrap">
+            <motion.div
+              style={{ width: "100%", height: "100%", display: "flex", alignItems: "flex-end", justifyContent: "center" }}
+              initial={{ opacity: 0, scale: 0.94, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/assets/urooj.jpg"
+                alt="Urooj Fatima"
+                className="hero-portrait-img"
+              />
+            </motion.div>
+          </div>
 
-          {/* Layer 3: Giant Text Outlines on top of the portrait */}
-          <div className="cinematic-outline-text" aria-hidden="true">
-            PORTFOLIO
+          {/* Layer 3: Foreground letters (solid POR, outlined O over shoulder, solid LIO) */}
+          <div className="hero-portfolio-text hero-portfolio-fg" aria-hidden="true">
+            <div className="hero-word-track">
+              <span className="hero-char-solid">P</span>
+              <span className="hero-char-solid">O</span>
+              <span className="hero-char-solid">R</span>
+              <span className="hero-char-ghost">T</span>
+              <span className="hero-char-ghost">F</span>
+              <span className="hero-char-outline">O</span>
+              <span className="hero-char-solid">L</span>
+              <span className="hero-char-solid">I</span>
+              <span className="hero-char-solid">O</span>
+            </div>
           </div>
         </div>
 
-        {/* Name and Tagline below the display */}
+        {/* Text and Action Buttons below portrait with clean breathing room */}
         <motion.div
-          style={{ position: "relative", zIndex: 10, marginTop: "20px" }}
-          initial={{ opacity: 0, y: 20 }}
+          className="hero-meta-wrap"
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.35, ease: "easeOut" }}
+          transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
         >
-          <h1
-            style={{
-              fontFamily: "var(--font-display)",
-              fontSize: "clamp(34px, 5.8vw, 56px)",
-              fontWeight: 800,
-              letterSpacing: "-0.02em",
-              color: "#FFFFFF",
-              marginBottom: "10px",
-            }}
-          >
-            Urooj Fatima
-          </h1>
+          <h1 className="hero-name">Hi, I'm Urooj Fatima</h1>
 
-          <p
-            style={{
-              fontSize: "clamp(16px, 2.2vw, 21px)",
-              fontWeight: 600,
-              color: "#FAF6F0",
-              maxWidth: "680px",
-              lineHeight: 1.45,
-              margin: "0 auto 8px",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Create High quality and Impact full Posts &amp; AI videos
+          <p className="hero-subtitle-primary">
+            High-Impact Visuals. Cinematic AI Content.
           </p>
 
-          <p
-            style={{
-              fontSize: "clamp(13.5px, 1.8vw, 16px)",
-              color: "rgba(250, 246, 240, 0.85)",
-              maxWidth: "620px",
-              lineHeight: 1.5,
-              margin: "0 auto 28px",
-              fontWeight: 500,
-            }}
-          >
-            Designer &amp; Video generation &amp; Agentic AI Developer
+          <p className="hero-subtitle-secondary">
+            Post Design | AI Video Generation |  Agentic AI  | AI Automation 
           </p>
 
-          {/* Action Buttons: LinkedIn, Instagram & Contact */}
-          <div style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap", justifyContent: "center" }}>
-            <motion.a
+          {/* Action Buttons: LinkedIn, Instagram & Contact Me */}
+          <div className="hero-actions-row">
+            <a
               href="https://www.linkedin.com/in/urooj-fatima-b2698431a/"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, y: -3 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "#0A66C2",
-                color: "#FFFFFF",
-                fontSize: "13.5px",
-                fontWeight: 600,
-                padding: "11px 22px",
-                borderRadius: "var(--radius-full)",
-                boxShadow: "0 4px 16px rgba(10, 102, 194, 0.35)",
-              }}
+              className="hero-pill-btn hero-btn-dark"
             >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-              <span>Follow on LinkedIn</span>
-            </motion.a>
+              <span className="hero-btn-icon hero-icon-linkedin">
+                <span className="hero-linkedin-badge">in</span>
+              </span>
+              <span>LinkedIn</span>
+            </a>
 
-            <motion.a
+            <a
               href="https://www.instagram.com/_urooj.fatimaaa_?igsi=MWd6MnFhdzd2azRpOA=="
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, y: -3 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #FCB045 100%)",
-                color: "#FFFFFF",
-                fontSize: "13.5px",
-                fontWeight: 600,
-                padding: "11px 22px",
-                borderRadius: "var(--radius-full)",
-                boxShadow: "0 4px 16px rgba(253, 29, 29, 0.3)",
-              }}
+              className="hero-pill-btn hero-btn-dark"
             >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-              </svg>
-              <span>Follow on Instagram</span>
-            </motion.a>
+              <span className="hero-btn-icon hero-icon-instagram">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </span>
+              <span>Instagram</span>
+            </a>
 
-            <motion.a
+            <a
               href="#contact"
-              whileHover={{ scale: 1.05, y: -3 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 400, damping: 20 }}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                padding: "11px 24px",
-                borderRadius: "var(--radius-full)",
-                background: "rgba(255, 255, 255, 0.12)",
-                border: "1px solid rgba(255, 255, 255, 0.25)",
-                backdropFilter: "blur(10px)",
-                color: "#ECE5D8",
-                fontSize: "13.5px",
-                fontWeight: 600,
-                boxShadow: "0 4px 14px rgba(0, 0, 0, 0.25)",
-              }}
+              className="hero-pill-btn hero-btn-accent"
             >
               <span>Contact Me</span>
-            </motion.a>
+            </a>
           </div>
         </motion.div>
       </section>
