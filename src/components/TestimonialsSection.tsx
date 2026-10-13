@@ -13,6 +13,13 @@ interface ComplimentItem {
 
 const COMPLIMENT_ITEMS: ComplimentItem[] = [
   {
+    id: "c-hamza",
+    img: "/assets/proof/hamza-comment.png",
+    alt: "LinkedIn Comment by Muhammad Hamza: What do you use to create these images?",
+    platform: "LinkedIn",
+    badge: "LinkedIn",
+  },
+  {
     id: "c1",
     img: "/assets/proof/compliment-1.png",
     alt: "LinkedIn Comment: Lit - As your first attempt its impressive",

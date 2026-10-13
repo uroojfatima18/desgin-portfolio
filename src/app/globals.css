@@ -710,7 +710,7 @@ button {
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
   margin-top: -30px;
-  padding: 36px 0 24px;
+  padding: 24px 0 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -757,7 +757,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  height: clamp(240px, 28vw, 380px);
+  height: clamp(225px, 25.5vw, 350px);
   overflow: visible;
 }
 
@@ -773,7 +773,7 @@ button {
   width: max-content;
   font-family: 'Antonio', sans-serif;
   font-weight: 700;
-  font-size: clamp(80px, 24vw, 380px);
+  font-size: clamp(75px, 22.5vw, 350px);
   line-height: 0.82;
   text-transform: uppercase;
   user-select: none;
@@ -836,8 +836,8 @@ button {
   bottom: 0;
   transform: translateX(-50%);
   z-index: 2;
-  width: clamp(340px, 36vw, 530px);
-  height: clamp(280px, 30vw, 420px);
+  width: clamp(310px, 33vw, 480px);
+  height: clamp(245px, 26.5vw, 370px);
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -849,15 +849,15 @@ button {
   height: 100%;
   object-fit: contain;
   object-position: center bottom;
-  mask-image: linear-gradient(to bottom, black 72%, rgba(0, 0, 0, 0.4) 88%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 72%, rgba(0, 0, 0, 0.4) 88%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 65%, rgba(0, 0, 0, 0.3) 84%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, rgba(0, 0, 0, 0.3) 84%, transparent 100%);
   filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.85));
 }
 
 .hero-meta-wrap {
   position: relative;
   z-index: 10;
-  margin-top: clamp(45px, 5.5vw, 75px);
+  margin-top: clamp(48px, 5.5vw, 75px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -868,11 +868,11 @@ button {
 
 .hero-name {
   font-family: var(--font-display);
-  font-size: clamp(26px, 3.2vw, 40px);
+  font-size: clamp(25px, 3.2vw, 38px);
   font-weight: 800;
   letter-spacing: -0.015em;
   color: #FFFFFF;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   line-height: 1.2;
 }
 
@@ -884,6 +884,67 @@ button {
   line-height: 1.5;
   margin: 0 auto 8px;
   letter-spacing: -0.01em;
+}
+
+.hero-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: rgba(88, 53, 229, 0.16);
+  border: 1px solid rgba(167, 139, 250, 0.42);
+  border-radius: 9999px;
+  padding: 6px 18px;
+  margin: 6px auto 14px;
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: clamp(12px, 1.25vw, 13.5px);
+  font-weight: 500;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 18px rgba(88, 53, 229, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  max-width: 90vw;
+}
+
+.hero-ai-badge:hover {
+  background: rgba(88, 53, 229, 0.32);
+  border-color: rgba(196, 181, 253, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(110, 60, 240, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.hero-ai-badge-text {
+  color: #EDE8F5;
+  font-weight: 500;
+}
+
+.hero-ai-badge-cta {
+  color: #C4B5FD;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: 10px;
+  margin-left: 4px;
+}
+
+.hero-ai-badge:hover .hero-ai-badge-cta {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+.hero-ai-sparkle {
+  font-size: 13px;
+  animation: sparkleRotate 3s ease-in-out infinite alternate;
+}
+
+@keyframes sparkleRotate {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.15) rotate(10deg); }
+  100% { transform: scale(1) rotate(-8deg); }
 }
 
 .hero-subtitle-secondary {
@@ -1274,11 +1335,38 @@ button {
    HOW DO I WORK (4-STEP WORKFLOW)
    ========================================================= */
 
+#workflow {
+  scroll-margin-top: 110px;
+}
+
+.workflow-pill-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 6px;
+}
+
+.workflow-process-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #111111;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
 .workflow-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 22px;
   position: relative;
+  width: 100%;
 }
 
 @media (max-width: 1080px) {
@@ -1295,61 +1383,61 @@ button {
 
 .workflow-card {
   background: #FFFFFF;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-xl);
-  padding: 30px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 24px;
+  padding: 34px 26px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  min-height: 190px;
+  align-items: flex-start;
+  text-align: left;
+  min-height: 220px;
   position: relative;
-  box-shadow: var(--shadow-sm);
-  transition: box-shadow 0.3s var(--transition-smooth), border-color 0.3s ease;
+  box-shadow: 0 4px 22px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
   overflow: hidden;
-  cursor: pointer;
+  cursor: default;
 }
 
 .workflow-card:hover {
-  box-shadow: var(--shadow-hover);
-  border-color: rgba(14, 14, 14, 0.16);
+  border-color: rgba(0, 0, 0, 0.14);
 }
 
-.workflow-card-header {
+.workflow-card-top {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .workflow-step-pill {
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  padding: 5px 12px;
-  border-radius: var(--radius-full);
-  background: var(--bg-body);
-  border: 1px solid var(--border-light);
-  color: var(--text-main);
-}
-
-.workflow-icon-box {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  letter-spacing: 0.07em;
+  padding: 5px 13px;
+  border-radius: 9999px;
+  background: #F3F4F6;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  color: #1F2937;
+  display: inline-block;
 }
 
 .workflow-card-title {
   font-family: var(--font-display);
-  font-size: 19px;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-size: 18.5px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  text-transform: uppercase;
   color: #0E0E0E;
-  line-height: 1.35;
+  line-height: 1.25;
+  margin: 0 0 10px 0;
+}
+
+.workflow-card-desc {
+  font-size: 14.5px;
+  color: #555555;
+  line-height: 1.55;
   margin: 0;
+  font-weight: 450;
 }
 
 /* =========================================================

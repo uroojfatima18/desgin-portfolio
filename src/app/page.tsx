@@ -11,36 +11,28 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import { PORTFOLIO_DATA } from "@/data/portfolioData";
 import { motion } from "framer-motion";
-import { Globe, Sparkles, Palette, Send, Compass } from "lucide-react";
+import { Compass } from "lucide-react";
 
 const WORKFLOW_STEPS = [
   {
-    step: "Step 01",
-    title: "Take inspiration from internet",
-    icon: Globe,
-    accent: "#5835E5",
-    accentBg: "rgba(88, 53, 229, 0.08)",
+    step: "STEP 01",
+    title: "FIND INSPIRATION",
+    desc: "Explore references, trends & visual ideas.",
   },
   {
-    step: "Step 02",
-    title: "Set it for my own work with any LLM",
-    icon: Sparkles,
-    accent: "#8B5CF6",
-    accentBg: "rgba(139, 92, 246, 0.08)",
+    step: "STEP 02",
+    title: "DEVELOP THE CONCEPT",
+    desc: "Refine the idea with AI-assisted workflows.",
   },
   {
-    step: "Step 03",
-    title: "Edit in Canva & Text layout",
-    icon: Palette,
-    accent: "#06B6D4",
-    accentBg: "rgba(6, 182, 212, 0.08)",
+    step: "STEP 03",
+    title: "DESIGN & REFINE",
+    desc: "Perfect the visuals, typography & layout.",
   },
   {
-    step: "Step 04",
-    title: "Publish",
-    icon: Send,
-    accent: "#10B981",
-    accentBg: "rgba(16, 185, 129, 0.08)",
+    step: "STEP 04",
+    title: "FINALIZE & PUBLISH",
+    desc: "Export polished content, ready to share.",
   },
 ];
 
@@ -113,8 +105,23 @@ export default function HomePage() {
           <p className="hero-subtitle-primary">
             I create High quality Posters, Slides, AI Videos, AI Agents &amp; Automations workflows too. Scroll to see my work.
             <br />
-            See you on LinkedIn &amp; Instagram &mdash; just DM me for Creative Work
+            See you on LinkedIn &amp; Instagram &mdash; just DM me to get started
           </p>
+
+          {/* AI Portfolio Badge (Short High-Converting CTA) */}
+          <a
+            href="https://uroojfatima.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hero-ai-badge"
+          >
+            <span className="hero-ai-badge-text">
+              Looking for my Agentic AI projects?
+            </span>
+            <span className="hero-ai-badge-cta">
+              Explore AI Portfolio ↗
+            </span>
+          </a>
 
           <p className="hero-subtitle-secondary">
             Post Design | AI Video Generation |  Agentic AI  | AI Automation 
@@ -352,68 +359,58 @@ export default function HomePage() {
       {/* 4. AI VIDEO GENERATION SECTION */}
       <AIVideoSection />
 
-      {/* 5. HOW DO I WORK (4-STEP ANIMATED BOXES) */}
+      {/* 5. HOW DO I WORK (4-STEP WORKFLOW) */}
       <section id="workflow">
         <div className="center-section-header">
-          <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-            <Compass size={15} color="#5835E5" />
-            <span className="about-pill">Creative Process</span>
+          <div className="workflow-pill-wrap">
+            <span className="workflow-process-pill">
+              <Compass size={14} color="#5835E5" />
+              <span>CREATIVE PROCESS</span>
+            </span>
           </div>
           <h2
             style={{
               fontFamily: "var(--font-display)",
-              fontSize: "clamp(28px, 4vw, 42px)",
+              fontSize: "clamp(30px, 4.2vw, 44px)",
               fontWeight: 800,
-              letterSpacing: "-0.02em",
+              letterSpacing: "-0.025em",
               color: "#0E0E0E",
-              marginTop: "4px",
+              marginTop: "8px",
             }}
           >
             How Do I Work?
           </h2>
-          <p style={{ fontSize: "15px", color: "var(--text-muted)", maxWidth: "560px" }}>
-            My 4-step creative process from inspiration to live publication
+          <p style={{ fontSize: "15px", color: "var(--text-muted)", maxWidth: "560px", margin: "6px auto 0" }}>
+            My 4-step creative process, from inspiration to publication.
           </p>
         </div>
 
         <div className="workflow-grid">
-          {WORKFLOW_STEPS.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <motion.div
-                key={item.step}
-                className="workflow-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{
-                  duration: 0.5,
-                  delay: index * 0.12,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                whileHover={{
-                  y: -8,
-                  scale: 1.02,
-                  transition: { type: "spring", stiffness: 400, damping: 25 },
-                }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <div className="workflow-card-header">
-                  <span className="workflow-step-pill">{item.step}</span>
-                  <motion.div
-                    className="workflow-icon-box"
-                    style={{ background: item.accentBg, color: item.accent }}
-                    whileHover={{ rotate: [0, -12, 12, 0], scale: 1.15 }}
-                    transition={{ duration: 0.4 }}
-                  >
-                    <Icon size={22} />
-                  </motion.div>
-                </div>
-
-                <h3 className="workflow-card-title">{item.title}</h3>
-              </motion.div>
-            );
-          })}
+          {WORKFLOW_STEPS.map((item, index) => (
+            <motion.div
+              key={item.step}
+              className="workflow-card"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{
+                duration: 0.5,
+                delay: index * 0.1,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              whileHover={{
+                y: -6,
+                boxShadow: "0 16px 36px rgba(0, 0, 0, 0.08)",
+                transition: { type: "spring", stiffness: 350, damping: 25 },
+              }}
+            >
+              <div className="workflow-card-top">
+                <span className="workflow-step-pill">{item.step}</span>
+              </div>
+              <h3 className="workflow-card-title">{item.title}</h3>
+              <p className="workflow-card-desc">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
