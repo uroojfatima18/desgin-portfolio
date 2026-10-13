@@ -78,7 +78,7 @@ export default function HomePage() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/assets/urooj.jpg"
+                src="/assets/urooj_cutout.png"
                 alt="Urooj Fatima"
                 className="hero-portrait-img"
               />
@@ -111,7 +111,9 @@ export default function HomePage() {
           <h1 className="hero-name">Hi, I'm Urooj Fatima</h1>
 
           <p className="hero-subtitle-primary">
-            High-Impact Visuals. Cinematic AI Content.
+            I create High quality Posters, Slides, AI Videos, AI Agents &amp; Automations workflows too. Scroll to see my work.
+            <br />
+            See you on LinkedIn &amp; Instagram &mdash; just DM me for Creative Work
           </p>
 
           <p className="hero-subtitle-secondary">
